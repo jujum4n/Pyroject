@@ -6,7 +6,7 @@ Has a way to track costs of projects. In the future it will have todo stats, cos
 ```
 python3 main.py
 ```
-![Alt text](./docs/pyroject.gif?raw=true "Pyroject v0.1")
+![Alt text](./docs/Pyroject.gif?raw=true "Pyroject v0.1")
 ### Built With
 * [Python](https://www.python.org/) - Python 3.5 +
 * [QT5](https://doc.qt.io/qt-5/) - QT5 GUI Libraries
