@@ -1,20 +1,21 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from PyQt5 import QtWidgets
-from PyQt5.QtGui import QColor
+from PyQt5.QtGui import QColor, QIcon
 from PyQt5.QtWidgets import QTableWidgetItem, QInputDialog
 import csv
 import sys
 import design
 import qdarkstyle
 import os
+import resources
 
 
 class Pyroject(QtWidgets.QMainWindow, design.Ui_MainWindow):
     def __init__(self):
         super(self.__class__, self).__init__()
         self.setupUi(self)
-
+        self.setWindowIcon(QIcon(":/icons/colored_cube.png"));
         self.listWidget.itemDoubleClicked.connect(self.open_file)
 
         self.current_directory = ''
@@ -38,7 +39,7 @@ class Pyroject(QtWidgets.QMainWindow, design.Ui_MainWindow):
         self.todoTableWidget.horizontalHeader().setVisible(True)
         self.todoTableWidget.setColumnWidth(0, self.todoTableWidget.width() / 6)
         self.todoTableWidget.setColumnWidth(1, self.todoTableWidget.width() / 3)
-        self.todoTableWidget.setColumnWidth(2, (self.todoTableWidget.width() / 2) -1)
+        self.todoTableWidget.setColumnWidth(2, (self.todoTableWidget.width() / 2))
 
         self.saveTextEditButton.clicked.connect(self.saveText)
 
@@ -53,9 +54,10 @@ class Pyroject(QtWidgets.QMainWindow, design.Ui_MainWindow):
 
 
     def saveText(self):
-        file = open(self.open_file_path, 'w')
-        file.write(self.plainTextEdit.toPlainText())
-        file.close()
+        if self.open_file_path:
+            file = open(self.open_file_path, 'w')
+            file.write(self.plainTextEdit.toPlainText())
+            file.close()
     def todoAddRow(self):
         num_rows = self.todoTableWidget.rowCount()
         self.todoTableWidget.insertRow(num_rows)
@@ -86,7 +88,7 @@ class Pyroject(QtWidgets.QMainWindow, design.Ui_MainWindow):
             self.listWidget.addItem('..')  # add file to the listWidget
             row = self.listWidget.count()
             ite = self.listWidget.item(row - 1)
-            ite.setBackground(QColor('white'))
+            ite.setBackground(QColor('#a59f80'))
             ite.setForeground(QColor('black'))
             for file_name in os.listdir(folder):
                 file_path = os.path.join(folder, file_name)
@@ -106,14 +108,14 @@ class Pyroject(QtWidgets.QMainWindow, design.Ui_MainWindow):
                         ite = self.listWidget.item(row-1)
                         ite.setBackground(QColor('#5d3954'))
                 elif os.path.isdir(file_path) == False:
-                    file_types = ['.cpp', '.py', '.txt', '.html', '.h', '.c', '.sol', '.js', '.rs', '.sh']
+                    file_types = ['.cpp', '.py', '.txt', '.html', '.h', '.c', '.sol', '.js', '.rs', '.sh', '.java', '.config']
                     for x in file_types:
                         if file_name.endswith(x):
                             self.listWidget.addItem(file_name)  # add file to the listWidget
                             self.current_directory = os.path.join(folder)
                             row = self.listWidget.count()
                             ite = self.listWidget.item(row-1)
-                            ite.setBackground(QColor('#082166'))
+                            ite.setBackground(QColor('#9c0000'))
                     if file_name.endswith('.todo'):
                         self.listWidget.addItem(file_name)  # add file to the listWidget
                         self.current_directory = os.path.join(folder)
@@ -210,7 +212,7 @@ class Pyroject(QtWidgets.QMainWindow, design.Ui_MainWindow):
             self.todoTableWidget.verticalHeader().setVisible(False)
             self.todoTableWidget.setColumnWidth(0, self.todoTableWidget.width() / 6)
             self.todoTableWidget.setColumnWidth(1, self.todoTableWidget.width() / 3)
-            self.todoTableWidget.setColumnWidth(2, (self.todoTableWidget.width() / 2) - 1)
+            self.todoTableWidget.setColumnWidth(2, (self.todoTableWidget.width() / 2))
 
     def handleCostOpen(self, path):
         with open(path, 'r') as stream:
@@ -316,7 +318,7 @@ class Pyroject(QtWidgets.QMainWindow, design.Ui_MainWindow):
 
 def main():
     app = QtWidgets.QApplication(sys.argv)
-    app.setStyleSheet(qdarkstyle.load_stylesheet_pyqt5())
+    #app.setStyleSheet(qdarkstyle.load_stylesheet_pyqt5())
     form = Pyroject()
     form.show()
     app.exec_()

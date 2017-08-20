@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1059</width>
-    <height>609</height>
+    <height>610</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -17,7 +17,61 @@
    </sizepolicy>
   </property>
   <property name="windowTitle">
-   <string>Pyroject - Alpha v0.1 - By: Juju</string>
+   <string>Pyroject - Alpha v0.2 - By: Juju</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow {
+	background-color: rgb(128, 128, 128);
+	border: 1px solid black;
+}
+
+QPushButton{
+	background-color: rgb(165, 159, 128);
+	color: rgb(0, 0, 0);
+	border: 1px solid black;
+}
+QPushButton:hover {
+    background-color: rgb(128, 128, 128);
+	color: rgb(255, 255, 255);
+	border: 1px solid white;
+	
+}
+QInputDialog{
+	background-color: rgb(165, 159, 128);
+	border: 1px solid black;
+}
+QLineEdit{
+	background-color: rgb(165, 159, 128);
+	color: rgb(0, 0, 0);
+	border: 1px solid black;
+}
+QListWidget{
+	background-color: rgb(165, 159, 128);
+	color: rgb(0, 0, 0);
+	border: 1px solid black;
+}
+QPlainTextEdit{
+	background-color: rgb(165, 159, 128);
+	color: rgb(0, 0, 0);
+	border: 1px solid black;
+}
+
+QHeaderView::section {
+    background-color: rgb(165, 159, 128);
+
+}
+QHeaderView{
+	border: 1px solid black;
+	gridline-color: rgb(0, 0, 0);
+}
+
+QTableWidget {
+	background-color: rgb(128, 128, 128);
+	alternate-background-color: rgb(165, 159, 128);
+    gridline-color: rgb(0, 0, 0);
+    font-size: 12pt;
+	border: 1px solid black;
+}</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QStackedWidget" name="stackedWidget">
@@ -30,7 +84,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="viewText">
      <widget class="QPlainTextEdit" name="plainTextEdit">
@@ -59,11 +113,16 @@
      <widget class="QPushButton" name="saveTextEditButton">
       <property name="geometry">
        <rect>
-        <x>570</x>
-        <y>560</y>
+        <x>550</x>
+        <y>570</y>
         <width>71</width>
-        <height>25</height>
+        <height>21</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <kerning>true</kerning>
+       </font>
       </property>
       <property name="text">
        <string>Save</string>
@@ -126,10 +185,10 @@
      <widget class="QPushButton" name="todoAddButton">
       <property name="geometry">
        <rect>
-        <x>0</x>
-        <y>560</y>
+        <x>20</x>
+        <y>570</y>
         <width>71</width>
-        <height>31</height>
+        <height>21</height>
        </rect>
       </property>
       <property name="text">
@@ -149,10 +208,10 @@
      <widget class="QPushButton" name="todoSaveButton">
       <property name="geometry">
        <rect>
-        <x>560</x>
-        <y>560</y>
-        <width>81</width>
-        <height>31</height>
+        <x>550</x>
+        <y>570</y>
+        <width>71</width>
+        <height>21</height>
        </rect>
       </property>
       <property name="text">
@@ -163,9 +222,9 @@
       <property name="geometry">
        <rect>
         <x>100</x>
-        <y>560</y>
+        <y>570</y>
         <width>71</width>
-        <height>31</height>
+        <height>21</height>
        </rect>
       </property>
       <property name="text">
@@ -213,10 +272,10 @@
      <widget class="QPushButton" name="costAddButton">
       <property name="geometry">
        <rect>
-        <x>0</x>
-        <y>560</y>
+        <x>20</x>
+        <y>570</y>
         <width>71</width>
-        <height>31</height>
+        <height>21</height>
        </rect>
       </property>
       <property name="text">
@@ -226,10 +285,10 @@
      <widget class="QPushButton" name="costSaveButton">
       <property name="geometry">
        <rect>
-        <x>560</x>
-        <y>560</y>
-        <width>81</width>
-        <height>31</height>
+        <x>550</x>
+        <y>570</y>
+        <width>71</width>
+        <height>21</height>
        </rect>
       </property>
       <property name="text">
@@ -240,9 +299,9 @@
       <property name="geometry">
        <rect>
         <x>100</x>
-        <y>560</y>
+        <y>570</y>
         <width>71</width>
-        <height>31</height>
+        <height>21</height>
        </rect>
       </property>
       <property name="text">
@@ -254,11 +313,23 @@
    <widget class="QPushButton" name="newProjectButton">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>570</y>
-      <width>71</width>
-      <height>31</height>
+      <x>30</x>
+      <y>580</y>
+      <width>91</width>
+      <height>21</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+      <stylestrategy>PreferAntialias</stylestrategy>
+     </font>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
     <property name="text">
      <string>+ project</string>
@@ -272,6 +343,9 @@
       <width>391</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
     </property>
    </widget>
    <widget class="QListWidget" name="listWidget">

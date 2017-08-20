@@ -9,6 +9,7 @@ __pycache__
 .idea/**/tasks.xml
 .idea/dictionaries
 *.token
+.autosave
 
 # Sensitive or high-churn files:
 .idea/**/dataSources/

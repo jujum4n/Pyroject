@@ -11,12 +11,64 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1059, 609)
+        MainWindow.resize(1059, 610)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(MainWindow.sizePolicy().hasHeightForWidth())
         MainWindow.setSizePolicy(sizePolicy)
+        MainWindow.setStyleSheet("QMainWindow {\n"
+"    background-color: rgb(128, 128, 128);\n"
+"    border: 1px solid black;\n"
+"}\n"
+"\n"
+"QPushButton{\n"
+"    background-color: rgb(165, 159, 128);\n"
+"    color: rgb(0, 0, 0);\n"
+"    border: 1px solid black;\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(128, 128, 128);\n"
+"    color: rgb(255, 255, 255);\n"
+"    border: 1px solid white;\n"
+"    \n"
+"}\n"
+"QInputDialog{\n"
+"    background-color: rgb(165, 159, 128);\n"
+"    border: 1px solid black;\n"
+"}\n"
+"QLineEdit{\n"
+"    background-color: rgb(165, 159, 128);\n"
+"    color: rgb(0, 0, 0);\n"
+"    border: 1px solid black;\n"
+"}\n"
+"QListWidget{\n"
+"    background-color: rgb(165, 159, 128);\n"
+"    color: rgb(0, 0, 0);\n"
+"    border: 1px solid black;\n"
+"}\n"
+"QPlainTextEdit{\n"
+"    background-color: rgb(165, 159, 128);\n"
+"    color: rgb(0, 0, 0);\n"
+"    border: 1px solid black;\n"
+"}\n"
+"\n"
+"QHeaderView::section {\n"
+"    background-color: rgb(165, 159, 128);\n"
+"\n"
+"}\n"
+"QHeaderView{\n"
+"    border: 1px solid black;\n"
+"    gridline-color: rgb(0, 0, 0);\n"
+"}\n"
+"\n"
+"QTableWidget {\n"
+"    background-color: rgb(128, 128, 128);\n"
+"    alternate-background-color: rgb(165, 159, 128);\n"
+"    gridline-color: rgb(0, 0, 0);\n"
+"    font-size: 12pt;\n"
+"    border: 1px solid black;\n"
+"}")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.stackedWidget = QtWidgets.QStackedWidget(self.centralwidget)
@@ -32,7 +84,10 @@ class Ui_MainWindow(object):
         self.fileNameLineEdit.setReadOnly(True)
         self.fileNameLineEdit.setObjectName("fileNameLineEdit")
         self.saveTextEditButton = QtWidgets.QPushButton(self.viewText)
-        self.saveTextEditButton.setGeometry(QtCore.QRect(570, 560, 71, 25))
+        self.saveTextEditButton.setGeometry(QtCore.QRect(550, 570, 71, 21))
+        font = QtGui.QFont()
+        font.setKerning(True)
+        self.saveTextEditButton.setFont(font)
         self.saveTextEditButton.setObjectName("saveTextEditButton")
         self.stackedWidget.addWidget(self.viewText)
         self.viewTable = QtWidgets.QWidget()
@@ -58,16 +113,16 @@ class Ui_MainWindow(object):
         item = QtWidgets.QTableWidgetItem()
         self.todoTableWidget.setHorizontalHeaderItem(2, item)
         self.todoAddButton = QtWidgets.QPushButton(self.viewTable)
-        self.todoAddButton.setGeometry(QtCore.QRect(0, 560, 71, 31))
+        self.todoAddButton.setGeometry(QtCore.QRect(20, 570, 71, 21))
         self.todoAddButton.setObjectName("todoAddButton")
         self.todoFileNameLineEdit = QtWidgets.QLineEdit(self.viewTable)
         self.todoFileNameLineEdit.setGeometry(QtCore.QRect(0, 0, 641, 31))
         self.todoFileNameLineEdit.setObjectName("todoFileNameLineEdit")
         self.todoSaveButton = QtWidgets.QPushButton(self.viewTable)
-        self.todoSaveButton.setGeometry(QtCore.QRect(560, 560, 81, 31))
+        self.todoSaveButton.setGeometry(QtCore.QRect(550, 570, 71, 21))
         self.todoSaveButton.setObjectName("todoSaveButton")
         self.todoRemoveButton = QtWidgets.QPushButton(self.viewTable)
-        self.todoRemoveButton.setGeometry(QtCore.QRect(100, 560, 71, 31))
+        self.todoRemoveButton.setGeometry(QtCore.QRect(100, 570, 71, 21))
         self.todoRemoveButton.setObjectName("todoRemoveButton")
         self.stackedWidget.addWidget(self.viewTable)
         self.viewCost = QtWidgets.QWidget()
@@ -87,20 +142,29 @@ class Ui_MainWindow(object):
         self.costFileNamelineEdit.setGeometry(QtCore.QRect(0, 0, 641, 31))
         self.costFileNamelineEdit.setObjectName("costFileNamelineEdit")
         self.costAddButton = QtWidgets.QPushButton(self.viewCost)
-        self.costAddButton.setGeometry(QtCore.QRect(0, 560, 71, 31))
+        self.costAddButton.setGeometry(QtCore.QRect(20, 570, 71, 21))
         self.costAddButton.setObjectName("costAddButton")
         self.costSaveButton = QtWidgets.QPushButton(self.viewCost)
-        self.costSaveButton.setGeometry(QtCore.QRect(560, 560, 81, 31))
+        self.costSaveButton.setGeometry(QtCore.QRect(550, 570, 71, 21))
         self.costSaveButton.setObjectName("costSaveButton")
         self.costRemoveButton = QtWidgets.QPushButton(self.viewCost)
-        self.costRemoveButton.setGeometry(QtCore.QRect(100, 560, 71, 31))
+        self.costRemoveButton.setGeometry(QtCore.QRect(100, 570, 71, 21))
         self.costRemoveButton.setObjectName("costRemoveButton")
         self.stackedWidget.addWidget(self.viewCost)
         self.newProjectButton = QtWidgets.QPushButton(self.centralwidget)
-        self.newProjectButton.setGeometry(QtCore.QRect(10, 570, 71, 31))
+        self.newProjectButton.setGeometry(QtCore.QRect(30, 580, 91, 21))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
+        font.setStyleStrategy(QtGui.QFont.PreferAntialias)
+        self.newProjectButton.setFont(font)
+        self.newProjectButton.setAutoFillBackground(False)
         self.newProjectButton.setObjectName("newProjectButton")
         self.naviLineEdit = QtWidgets.QLineEdit(self.centralwidget)
         self.naviLineEdit.setGeometry(QtCore.QRect(10, 10, 391, 31))
+        self.naviLineEdit.setStyleSheet("")
         self.naviLineEdit.setObjectName("naviLineEdit")
         self.listWidget = QtWidgets.QListWidget(self.centralwidget)
         self.listWidget.setGeometry(QtCore.QRect(10, 40, 391, 531))
@@ -109,12 +173,12 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(2)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Pyroject - Alpha v0.1 - By: Juju"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Pyroject - Alpha v0.2 - By: Juju"))
         self.saveTextEditButton.setText(_translate("MainWindow", "Save"))
         item = self.todoTableWidget.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "x"))

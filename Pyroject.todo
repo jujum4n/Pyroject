@@ -1,6 +1,6 @@
 done,finance area,Have a way to save costs of items
 done,"folder, note and todo add, cost file","be able to create new folders, notes and todos, todo has a limit where you can have 1 todo per folder name same with cost"
-todo,lock and save for text,"make way to edit notes in here, read only lock"
+todo,saved indicator for text,files can be saved if you go into another folder
 todo,url list,list of urls
 todo,statistics panel on bottom,"of issues and cost, current directory, overall"
 todo,star next to save button,when file is unsaved * next to save
@@ -10,3 +10,6 @@ todo,syntax highlighting for python,
 todo,seperate windows,
 todo,don't allow to save todo in other folder,
 todo,add to github,
+todo,style project like gui,
+,,
+d,,
