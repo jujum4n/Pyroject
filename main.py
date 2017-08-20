@@ -21,6 +21,7 @@ class Pyroject(QtWidgets.QMainWindow, design.Ui_MainWindow):
         self.current_directory = ''
         self.current_todo_file = ''
         self.current_cost_file = ''
+        self.current_file_edited = ''
         self.open_file_path = ''
 
 
@@ -51,7 +52,6 @@ class Pyroject(QtWidgets.QMainWindow, design.Ui_MainWindow):
         self.costTableWidget.horizontalHeader().setVisible(True)
         self.costTableWidget.setColumnWidth(0, self.costTableWidget.width() / 6)
         self.costTableWidget.setColumnWidth(1, self.costTableWidget.width() * .8332)
-
 
     def saveText(self):
         if self.open_file_path:
@@ -107,6 +107,7 @@ class Pyroject(QtWidgets.QMainWindow, design.Ui_MainWindow):
                         row = self.listWidget.count()
                         ite = self.listWidget.item(row-1)
                         ite.setBackground(QColor('#5d3954'))
+                        ite.setIcon(QIcon(":/icons/new folder.png"))
                 elif os.path.isdir(file_path) == False:
                     file_types = ['.cpp', '.py', '.txt', '.html', '.h', '.c', '.sol', '.js', '.rs', '.sh', '.java', '.config']
                     for x in file_types:
@@ -116,24 +117,29 @@ class Pyroject(QtWidgets.QMainWindow, design.Ui_MainWindow):
                             row = self.listWidget.count()
                             ite = self.listWidget.item(row-1)
                             ite.setBackground(QColor('#9c0000'))
+                            ite.setIcon(QIcon(":/icons/paperfulloftext.png"))
                     if file_name.endswith('.todo'):
                         self.listWidget.addItem(file_name)  # add file to the listWidget
                         self.current_directory = os.path.join(folder)
                         row = self.listWidget.count()
                         ite = self.listWidget.item(row - 1)
                         ite.setBackground(QColor('teal'))
+                        ite.setIcon(QIcon(":/icons/excel.png"))
                     if file_name.endswith('.cost'):
                         self.listWidget.addItem(file_name)  # add file to the listWidget
                         self.current_directory = os.path.join(folder)
                         row = self.listWidget.count()
                         ite = self.listWidget.item(row - 1)
                         ite.setBackground(QColor('#b31b1b'))
+
+                        ite.setIcon(QIcon(":/icons/pic.png"))
                     if file_name.endswith('.note'):
                         self.listWidget.addItem(file_name)  # add file to the listWidget
                         self.current_directory = os.path.join(folder)
                         row = self.listWidget.count()
                         ite = self.listWidget.item(row - 1)
                         ite.setBackground(QColor('#A0522D'))
+                        ite.setIcon(QIcon(":/icons/note.png"))
 
             self.naviLineEdit.setText(self.current_directory)
 

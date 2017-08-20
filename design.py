@@ -11,12 +11,15 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
+        MainWindow.setEnabled(True)
         MainWindow.resize(1059, 610)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(MainWindow.sizePolicy().hasHeightForWidth())
         MainWindow.setSizePolicy(sizePolicy)
+        MainWindow.setMinimumSize(QtCore.QSize(1059, 610))
+        MainWindow.setMaximumSize(QtCore.QSize(1059, 610))
         MainWindow.setStyleSheet("QMainWindow {\n"
 "    background-color: rgb(128, 128, 128);\n"
 "    border: 1px solid black;\n"
@@ -46,6 +49,7 @@ class Ui_MainWindow(object):
 "    background-color: rgb(165, 159, 128);\n"
 "    color: rgb(0, 0, 0);\n"
 "    border: 1px solid black;\n"
+"    outline: 0;\n"
 "}\n"
 "QPlainTextEdit{\n"
 "    background-color: rgb(165, 159, 128);\n"
@@ -68,7 +72,8 @@ class Ui_MainWindow(object):
 "    gridline-color: rgb(0, 0, 0);\n"
 "    font-size: 12pt;\n"
 "    border: 1px solid black;\n"
-"}")
+"}\n"
+"")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.stackedWidget = QtWidgets.QStackedWidget(self.centralwidget)
@@ -88,6 +93,9 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setKerning(True)
         self.saveTextEditButton.setFont(font)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("icons/devedee.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.saveTextEditButton.setIcon(icon)
         self.saveTextEditButton.setObjectName("saveTextEditButton")
         self.stackedWidget.addWidget(self.viewText)
         self.viewTable = QtWidgets.QWidget()
@@ -120,6 +128,7 @@ class Ui_MainWindow(object):
         self.todoFileNameLineEdit.setObjectName("todoFileNameLineEdit")
         self.todoSaveButton = QtWidgets.QPushButton(self.viewTable)
         self.todoSaveButton.setGeometry(QtCore.QRect(550, 570, 71, 21))
+        self.todoSaveButton.setIcon(icon)
         self.todoSaveButton.setObjectName("todoSaveButton")
         self.todoRemoveButton = QtWidgets.QPushButton(self.viewTable)
         self.todoRemoveButton.setGeometry(QtCore.QRect(100, 570, 71, 21))
@@ -146,6 +155,7 @@ class Ui_MainWindow(object):
         self.costAddButton.setObjectName("costAddButton")
         self.costSaveButton = QtWidgets.QPushButton(self.viewCost)
         self.costSaveButton.setGeometry(QtCore.QRect(550, 570, 71, 21))
+        self.costSaveButton.setIcon(icon)
         self.costSaveButton.setObjectName("costSaveButton")
         self.costRemoveButton = QtWidgets.QPushButton(self.viewCost)
         self.costRemoveButton.setGeometry(QtCore.QRect(100, 570, 71, 21))
@@ -161,6 +171,9 @@ class Ui_MainWindow(object):
         font.setStyleStrategy(QtGui.QFont.PreferAntialias)
         self.newProjectButton.setFont(font)
         self.newProjectButton.setAutoFillBackground(False)
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap("icons/doyourhomework.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.newProjectButton.setIcon(icon1)
         self.newProjectButton.setObjectName("newProjectButton")
         self.naviLineEdit = QtWidgets.QLineEdit(self.centralwidget)
         self.naviLineEdit.setGeometry(QtCore.QRect(10, 10, 391, 31))
@@ -169,11 +182,14 @@ class Ui_MainWindow(object):
         self.listWidget = QtWidgets.QListWidget(self.centralwidget)
         self.listWidget.setGeometry(QtCore.QRect(10, 40, 391, 531))
         self.listWidget.setStyleSheet("")
+        self.listWidget.setTextElideMode(QtCore.Qt.ElideLeft)
+        self.listWidget.setViewMode(QtWidgets.QListView.ListMode)
+        self.listWidget.setSelectionRectVisible(False)
         self.listWidget.setObjectName("listWidget")
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(2)
+        self.stackedWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -196,5 +212,5 @@ class Ui_MainWindow(object):
         self.costAddButton.setText(_translate("MainWindow", "+"))
         self.costSaveButton.setText(_translate("MainWindow", "Save"))
         self.costRemoveButton.setText(_translate("MainWindow", "-"))
-        self.newProjectButton.setText(_translate("MainWindow", "+ project"))
+        self.newProjectButton.setText(_translate("MainWindow", "project"))
 

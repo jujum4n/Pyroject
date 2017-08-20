@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -15,6 +18,18 @@
     <horstretch>0</horstretch>
     <verstretch>0</verstretch>
    </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1059</width>
+    <height>610</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1059</width>
+    <height>610</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Pyroject - Alpha v0.2 - By: Juju</string>
@@ -49,6 +64,7 @@ QListWidget{
 	background-color: rgb(165, 159, 128);
 	color: rgb(0, 0, 0);
 	border: 1px solid black;
+    outline: 0;
 }
 QPlainTextEdit{
 	background-color: rgb(165, 159, 128);
@@ -71,7 +87,8 @@ QTableWidget {
     gridline-color: rgb(0, 0, 0);
     font-size: 12pt;
 	border: 1px solid black;
-}</string>
+}
+</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QStackedWidget" name="stackedWidget">
@@ -84,7 +101,7 @@ QTableWidget {
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="viewText">
      <widget class="QPlainTextEdit" name="plainTextEdit">
@@ -126,6 +143,10 @@ QTableWidget {
       </property>
       <property name="text">
        <string>Save</string>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>icons/devedee.png</normaloff>icons/devedee.png</iconset>
       </property>
      </widget>
     </widget>
@@ -217,6 +238,10 @@ QTableWidget {
       <property name="text">
        <string>Save</string>
       </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>icons/devedee.png</normaloff>icons/devedee.png</iconset>
+      </property>
      </widget>
      <widget class="QPushButton" name="todoRemoveButton">
       <property name="geometry">
@@ -294,6 +319,10 @@ QTableWidget {
       <property name="text">
        <string>Save</string>
       </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>icons/devedee.png</normaloff>icons/devedee.png</iconset>
+      </property>
      </widget>
      <widget class="QPushButton" name="costRemoveButton">
       <property name="geometry">
@@ -332,7 +361,11 @@ QTableWidget {
      <bool>false</bool>
     </property>
     <property name="text">
-     <string>+ project</string>
+     <string>project</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>icons/doyourhomework.png</normaloff>icons/doyourhomework.png</iconset>
     </property>
    </widget>
    <widget class="QLineEdit" name="naviLineEdit">
@@ -359,6 +392,15 @@ QTableWidget {
     </property>
     <property name="styleSheet">
      <string notr="true"/>
+    </property>
+    <property name="textElideMode">
+     <enum>Qt::ElideLeft</enum>
+    </property>
+    <property name="viewMode">
+     <enum>QListView::ListMode</enum>
+    </property>
+    <property name="selectionRectVisible">
+     <bool>false</bool>
     </property>
    </widget>
   </widget>
