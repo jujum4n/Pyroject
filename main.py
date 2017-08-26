@@ -118,6 +118,7 @@ class Pyroject(QtWidgets.QMainWindow, design.Ui_MainWindow):
                             ite = self.listWidget.item(row-1)
                             ite.setBackground(QColor('#9c0000'))
                             ite.setIcon(QIcon(":/icons/paperfulloftext.png"))
+
                     if file_name.endswith('.todo'):
                         self.listWidget.addItem(file_name)  # add file to the listWidget
                         self.current_directory = os.path.join(folder)
@@ -157,6 +158,10 @@ class Pyroject(QtWidgets.QMainWindow, design.Ui_MainWindow):
             self.stackedWidget.setCurrentIndex(0)
             self.fileNameLineEdit.setText(file_name)
             self.open_file_path = file_path
+            if file_name.endswith('.note'):
+                self.fileNameLineEdit.setStyleSheet("background: #A0522D")
+            else:
+                self.fileNameLineEdit.setStyleSheet("background: #9c0000")
         if os.path.isdir(file_path) == True and not file_name.startswith('.') and not file_name.startswith('__'):
             file_path = os.path.join(self.current_directory, file_name)
             self.open_directory(file_path)
@@ -174,12 +179,14 @@ class Pyroject(QtWidgets.QMainWindow, design.Ui_MainWindow):
             self.current_todo_file = file_name
             self.todoFileNameLineEdit.setText(self.current_todo_file)
             self.open_file_path = file_path
+            self.todoFileNameLineEdit.setStyleSheet("background: #008080")
 
         if file_name.endswith('.cost'):
             self.handleCostOpen(self.current_directory+'/'+file_name)
             self.current_cost_file = file_name
             self.costFileNamelineEdit.setText(self.current_cost_file)
             self.open_file_path = file_path
+            self.costFileNamelineEdit.setStyleSheet("background: #b31b1b;")
 
     def todoSave(self):
         self.handleTodoSave(self.current_directory+'/' + self.current_todo_file)
